@@ -29,5 +29,21 @@ module.exports = {
                 }
             }
         })
+    },
+    getText: function (url, cb) {
+        options.url = url;
+        request(options, function (error, response, body) {
+            if (error) {
+                console.log('request err', error);
+                if (cb){ cb(error); }
+                return;
+            }
+
+            if (!error && response.statusCode == 200) {
+                if (cb){
+                    cb(null, body);
+                }
+            }
+        })
     }
 };
