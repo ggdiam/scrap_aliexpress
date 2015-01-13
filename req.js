@@ -25,6 +25,7 @@ module.exports = {
 
             if (!error && response.statusCode == 200) {
                 if (cb){
+                    console.log('request success');
                     cb(null, cheerio.load(body));
                 }
             }
